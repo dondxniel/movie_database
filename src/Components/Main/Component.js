@@ -18,7 +18,7 @@ class App extends Component{
 
   search = () => {
     let query = this.state.inputData;
-    axios(`http://www.omdbapi.com/?i=tt3896198&apikey=6a62533f&s=${query}`).then(({data}) => {
+    axios(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=tt3896198&apikey=6a62533f&s=${query}`).then(({data}) => {
         var res = data.Search;
         this.setState({
           ...this.state,
