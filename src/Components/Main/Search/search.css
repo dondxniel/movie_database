@@ -1,0 +1,33 @@
+.searchbar_container{
+    width: 80%;
+    margin: 30px auto;
+    height : 40px;
+    border: 1px solid rgb(68, 68, 255);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.searchbar{
+    width: 89%;
+    height: 100%;
+    border: none;
+    background: none;
+    color: rgb(188, 235, 247);
+    font-size: 20px;
+    text-align: center;
+    display: inline;
+}
+.searchbar :active{
+    border: none;
+    background: none;
+}
+
+.search_button{
+    display: inline;
+    width: 10%;
+    /* float: right; */
+    font-size: larger;
+    border: none;
+    background: none;
+    color: rgb(188, 235, 247);
+}

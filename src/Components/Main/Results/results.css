@@ -1,0 +1,21 @@
+.results{
+    /* border: 1px solid #fff; */
+    width: 80%;
+    margin: 0 auto;
+    padding: 3%;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.image_style{
+    height: 100px;
+    width: 90px
+}
+
+.no_results{
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    color: red;
+}

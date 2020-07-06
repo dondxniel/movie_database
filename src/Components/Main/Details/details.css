@@ -1,0 +1,26 @@
+.left_side{
+    /* display: inline; */
+    width: 50%;
+    float: left;
+}
+.right_side{
+    /* display: inline; */
+    width: 50%;
+    float: right;
+    padding-top: 5%;
+}
+.container{
+    width: 80%;
+    margin : 0 auto
+}
+.closeButtonContainer{
+  text-align: center;
+  padding: 40px;
+}
+.closeButton{
+  border: none;
+  background-color: skyblue;
+  padding: 15px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
