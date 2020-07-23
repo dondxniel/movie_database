@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./main.css";
 import Search from './Search/Component';
 import Results from './Results/Component';
 import Details from './Details/Component';
@@ -11,22 +12,36 @@ class App extends Component{
       inputData: "",
       data : [],
       activeMovie: {},
-      boolValState: true
+      boolValState: true,
+      showLoader: false
     }
   }
 
 
   search = () => {
+    this.setState({
+      ...this.state,
+      showLoader: true
+    })
     let query = this.state.inputData;
     axios(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=tt3896198&apikey=6a62533f&s=${query}`).then(({data}) => {
         var res = data.Search;
         this.setState({
           ...this.state,
-          data: res
+          data: res,
+          showLoader: false
         })
     })
+
   }
 
+  showLoader = (boolVal) => {
+    if(boolVal){
+      return <img className = "loadingImg" src = {require("./loading.png")} />
+    }else{
+      return <Results data = {this.state.data} setActiveMovie = {this.setActiveMovie}/>
+    }
+  }
 
   setActiveMovie = (movie) => {
     this.setState({
@@ -61,7 +76,7 @@ class App extends Component{
 
   toggleDisplay = (boolVal) => {
     if(boolVal){
-      return <MainView search = {this.search} saveInput = {this.saveInput} data = {this.state.data} setActiveMovie = {this.setActiveMovie} />
+      return <MainView showLoader = {this.showLoader(this.state.showLoader)} search = {this.search} saveInput = {this.saveInput} data = {this.state.data} setActiveMovie = {this.setActiveMovie} />
     }else{
       return <Details closeDetails = {this.closeDetails} movie = {this.state.activeMovie}/>
     }
@@ -76,13 +91,14 @@ class App extends Component{
 
 
 const MainView = (props) => {
+
   return(
     <>
       <div>
         <Search search = {props.search} saveInput = {props.saveInput} />
       </div>
       <div>
-        <Results data = {props.data} setActiveMovie = {props.setActiveMovie}/>
+        {props.showLoader}
       </div>
     </>
   )
